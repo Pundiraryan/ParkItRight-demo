@@ -7,7 +7,7 @@ const Spinner = () => {
       <TailSpin
         height={100}
         width={200}
-        color="#5EA5EC"
+        color="black"
         radius="1"
         visible={true}
       />

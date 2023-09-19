@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div className="flex  w-full justify-center bg-gray-100 pb-8">
+    <div className="flex  w-full justify-center bg-indigo-200 pb-8">
       <div className="flex w-full max-w-screen-xl flex-col items-center px-6">
         {/* grid for links */}
         <div className="grid  w-full grid-cols-1 gap-4 py-8 text-sm md:grid-cols-3 ">
@@ -48,12 +48,12 @@ const Footer = () => {
             <strong className="font-medium">Hosting</strong>
             <p>
               <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
-                Airbnb your home
+                ParkItRight your Parking
               </span>
             </p>
             <p>
               <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
-                AirCover for Hosts
+                Parkings for Hosts
               </span>
             </p>
             <p>
@@ -73,10 +73,10 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex flex-col gap-1">
-            <strong className="font-medium">Airbnb</strong>
+            <strong className="font-medium">ParkItRight</strong>
             <p>
               <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
-                Newsroom
+                When to report?
               </span>
             </p>
             <p>
@@ -96,7 +96,7 @@ const Footer = () => {
             </p>
             <p>
               <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
-                Airbnb.org emergency stays
+                ParkItRight.org emergency stays
               </span>
             </p>
           </div>
@@ -154,7 +154,7 @@ const Footer = () => {
           </div>
 
           <div className="flex w-full flex-col gap-2 px-1 font-normal text-gray-700 md:w-auto md:flex-row md:items-center md:gap-8">
-            <p className="text-sm">&copy; 2023 Airbnb, Inc.</p>
+            <p className="text-sm">&copy; 2023 ParkItRight, Inc.</p>
             <div>
               <ul className=" flex gap-6 text-sm text-gray-700">
                 <li className="cursor-pointer text-gray-700 decoration-1 underline-offset-1 hover:underline md:list-disc">
