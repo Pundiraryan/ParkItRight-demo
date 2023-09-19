@@ -33,7 +33,7 @@ const SearchBar = () => {
 
   return (
     <>
-      <div className="flex w-4/6 overflow-hidden rounded-full border border-gray-400 bg-gray-300 shadow-sm hover:shadow-lg md:w-1/2">
+      <div className="h-12 flex w-4/6 overflow-hidden rounded-full border border-gray-400 bg-gray-300 shadow-sm hover:shadow-lg md:w-1/2">
         <div className="grow">
           <input
             type="search"
@@ -65,15 +65,6 @@ const SearchBar = () => {
             <span className="ml-1 hidden md:block">Search</span>
           </button>
         </div>
-      </div>
-      <div className='flex px-3.5 bg-horn overflow-hidden rounded-full border shadow-sm hover:shadow-lg'>
-        <Link to="/report">
-        <div className="flex items-center gap-1">
-          <img
-            className="h-10 w-10 md:h-10 md:w-10"
-            src="/images/air-horn.png"
-            alt=""
-          /></div></Link>
       </div>
     </>
   );

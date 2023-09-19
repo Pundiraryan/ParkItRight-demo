@@ -122,7 +122,7 @@ if (loading) {
 
 return (
   <div className="py-20 p-4 bg-white w-full h-full ">
-    <h1 className='text-4xl font-bold'>Report Illegal Parking to Administration</h1>
+    <h1 className='text-4xl font-bold text-center'>Report Illegal Parking to Administration</h1>
     {/* <AccountNav /> */}
     <form onSubmit={savePlace}>
       {/* {preInput(
