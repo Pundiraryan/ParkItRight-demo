@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs')
 exports.register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-
+    console.log(req.body);
     if (!name || !email || !password) {
       return res.status(400).json({
         message: 'Name, email and password are required',
@@ -27,10 +27,10 @@ exports.register = async (req, res) => {
       email,
       password,
     });
-
     // after creating new user in DB send the token
     cookieToken(user, res);
   } catch (err) {
+    console.log('gadbad-------------');
     res.status(500).json({
       message: 'Internal server Error',
       error: err,
@@ -51,6 +51,7 @@ exports.login = async (req, res) => {
     }
 
     const user = await User.findOne({ email });
+    console.log(user);
 
     if (!user) {
       return res.status(400).json({
@@ -78,37 +79,37 @@ exports.login = async (req, res) => {
 };
 
 // Google Login
-exports.googleLogin = async (req, res) => {
-  try {
-    const { name, email } = req.body;
+// exports.googleLogin = async (req, res) => {
+//   try {
+//     const { name, email } = req.body;
 
-    if (!name || !email) {
-      return res.status(400), json({
-        message: 'Name and email are required'
-      })
-    }
+//     if (!name || !email) {
+//       return res.status(400), json({
+//         message: 'Name and email are required'
+//       })
+//     }
 
-    // check if user already registered
-    let user = await User.findOne({ email });
+//     // check if user already registered
+//     let user = await User.findOne({ email });
 
-    // If the user does not exist, create a new user in the DB  
-    if (!user) {
-      user = await User.create({
-        name,
-        email,
-        password: await bcrypt.hash(Math.random().toString(36).slice(-8), 10)
-      })
-    }
+//     // If the user does not exist, create a new user in the DB  
+//     if (!user) {
+//       user = await User.create({
+//         name,
+//         email,
+//         password: await bcrypt.hash(Math.random().toString(36).slice(-8), 10)
+//       })
+//     }
 
-    // send the token
-    cookieToken(user, res)
-  } catch (err) {
-    res.status(500).json({
-      message: 'Internal server Error',
-      error: err,
-    });
-  }
-}
+//     // send the token
+//     cookieToken(user, res)
+//   } catch (err) {
+//     res.status(500).json({
+//       message: 'Internal server Error',
+//       error: err,
+//     });
+//   }
+// }
 
 // Logout
 exports.logout = async (req, res) => {

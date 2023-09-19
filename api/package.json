@@ -4,13 +4,13 @@
   "description": "API for airbnb clone app",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "keywords": [
     "api",
     "backend"
   ],
-  "author": "rahul4019",
+  "author": "techgems",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -24,6 +24,7 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.9.0",
     "multer": "^1.4.5-lts.1",
-    "multer-storage-cloudinary": "^4.0.0"
+    "multer-storage-cloudinary": "^4.0.0",
+    "nodemon": "^3.0.1"
   }
 }

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { GoogleLogin } from '@react-oauth/google';
+// import { GoogleLogin } from '@react-oauth/google';
 import { Navigate } from 'react-router-dom';
+// import Axios from 'AXI'
 
-import { useAuth } from '../../hooks';
+// import { useAuth } from '../../hooks';
+import Axios from 'axios';
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +15,7 @@ const RegisterPage = () => {
     password: '',
   });
   const [redirect, setRedirect] = useState(false);
-  const auth = useAuth();
+  // const auth = useAuth();
 
   const handleFormData = (e) => {
     const { name, value } = e.target;
@@ -21,26 +23,28 @@ const RegisterPage = () => {
   };
 
   const handleFormSubmit = async (e) => {
-    e.preventDefault();
-
-    const response = await auth.register(formData);
-    if (response.success) {
-      toast.success(response.message);
+    // e.preventDefault();
+    console.log("hello");
+    const response = await Axios.post('http://localhost:3000/user/register',formData);
+    if (response) {
+      console.log("success");
+      toast.success('sucess register');
       setRedirect(true);
     } else {
-      toast.error(response.message);
+      console.log("fail");
+      toast.error('failure register');
     }
   };
 
-  const handleGoogleLogin = async (credential) => {
-    const response = await auth.googleLogin(credential);
-    if (response.success) {
-      toast.success(response.message);
-      setRedirect(true);
-    } else {
-      toast.error(response.message);
-    }
-  };
+  // const handleGoogleLogin = async (credential) => {
+  //   const response = await auth.googleLogin(credential);
+  //   if (response.success) {
+  //     toast.success(response.message);
+  //     setRedirect(true);
+  //   } else {
+  //     toast.error(response.message);
+  //   }
+  // };
 
   if (redirect) {
     return <Navigate to="/" />;
@@ -50,7 +54,7 @@ const RegisterPage = () => {
     <div className="mt-4 flex grow items-center justify-around p-4 md:p-0">
       <div className="mb-40">
         <h1 className="mb-4 text-center text-4xl">Register</h1>
-        <form className="mx-auto max-w-md" onSubmit={handleFormSubmit}>
+        <form className="mx-auto max-w-md">
           <input
             name="name"
             type="text"
@@ -72,7 +76,9 @@ const RegisterPage = () => {
             value={formData.password}
             onChange={handleFormData}
           />
-          <button className="primary my-2">Register</button>
+          <button type='button' className="primary my-2" onClick={(e)=>{
+            handleFormSubmit(formData)
+          }}>Register</button>
         </form>
 
         <div className="mb-4 flex w-full items-center gap-4">
@@ -82,7 +88,7 @@ const RegisterPage = () => {
         </div>
 
         {/* Google login button */}
-        <div className="flex h-[50px] justify-center">
+        {/* <div className="flex h-[50px] justify-center">
           <GoogleLogin
             onSuccess={(credentialResponse) => {
               handleGoogleLogin(credentialResponse.credential);
@@ -93,7 +99,7 @@ const RegisterPage = () => {
             text="continue_with"
             width="350"
           />
-        </div>
+        </div> */}
 
         <div className="py-2 text-center text-gray-500">
           Already a member?

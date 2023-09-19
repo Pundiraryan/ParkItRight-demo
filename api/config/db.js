@@ -6,6 +6,7 @@ const connectWithDB = () => {
     .connect(process.env.DB_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      dbName:"ParkItRight"
     })
     .then(console.log(`DB connected successfully`))
     .catch((err) => {
