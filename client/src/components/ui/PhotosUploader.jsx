@@ -54,7 +54,7 @@ const PhotosUploader = ({ addedPhotos, setAddedPhotos }) => {
           placeholder="Add using a link ...jpg"
         />
         <button
-          className="rounded-2xl bg-gray-200 px-4"
+          className="rounded-full bg-gray-500 px-4 text-white hover:bg-primary"
           onClick={addPhotoByLink}
         >
           Add&nbsp;photo
@@ -126,7 +126,7 @@ const PhotosUploader = ({ addedPhotos, setAddedPhotos }) => {
               </button>
             </div>
           ))}
-        <label className="flex h-32 cursor-pointer items-center justify-center gap-1 rounded-2xl border bg-transparent p-2 text-2xl text-gray-600">
+        <label className="flex h-16 cursor-pointer hover:bg-primary items-center justify-center gap-1 rounded-full border bg-gray-500 p-2 text-2xl text-white">
           <input
             type="file"
             multiple

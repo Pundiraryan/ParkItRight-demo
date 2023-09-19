@@ -15,50 +15,18 @@ const [loading, setLoading] = useState(false);
 const [addedPhotos, setAddedPhotos] = useState([]);
 
 const [formData, setFormData] = useState({
-  title: '',
-  address: '',
-  description: '',
-  perks: [],
-  extraInfo: '',
-  checkIn: '',
-  checkOut: '',
-  maxGuests: 10,
-  price: 500,
+  extraInfo: "",
 });
 
 const {
-  title,
-  address,
-  description,
-  perks,
   extraInfo,
-  checkIn,
-  checkOut,
-  maxGuests,
-  price,
 } = formData;
 
 const isValidPlaceData = () => {
-  if (title.trim() === '') {
-    toast.error("Title can't be empty!");
-    return false;
-  } else if (address.trim() === '') {
-    toast.error("Address can't be empty!");
-    return false;
-  } else if (addedPhotos.length < 5) {
+  if (addedPhotos.length < 5) {
     toast.error('Upload at least 5 photos!');
     return false;
-  } else if (description.trim() === '') {
-    toast.error("Description can't be empty!");
-    return false;
-  } else if (maxGuests < 1) {
-    toast.error('At least one guests is required!');
-    return false;
-  } else if (maxGuests > 10) {
-    toast.error("Max. guests can't be greater than 10");
-    return false;
   }
-
   return true;
 };
 
@@ -71,43 +39,43 @@ const handleFormData = (e) => {
   }
 
   // If type is checkbox (perks)
-  if (type === 'checkbox') {
-    const currentPerks = [...perks];
-    let updatedPerks = [];
+  // if (type === 'checkbox') {
+  //   const currentPerks = [...perks];
+  //   let updatedPerks = [];
 
-    // Check if the perk is already in perks array
-    if (currentPerks.includes(name)) {
-      updatedPerks = currentPerks.filter((perk) => perk !== name);
-    } else {
-      updatedPerks = [...currentPerks, name];
-    }
-    setFormData({ ...formData, perks: updatedPerks });
-  }
+  //   // Check if the perk is already in perks array
+  //   if (currentPerks.includes(name)) {
+  //     updatedPerks = currentPerks.filter((perk) => perk !== name);
+  //   } else {
+  //     updatedPerks = [...currentPerks, name];
+  //   }
+  //   setFormData({ ...formData, perks: updatedPerks });
+  // }
 };
 
-useEffect(() => {
-  if (!id) {
-    return;
-  }
-  setLoading(true);
-  axiosInstance.get(`/places/${id}`).then((response) => {
-    const { place } = response.data;
-    // update the state of formData
-    for (let key in formData) {
-      if (place.hasOwnProperty(key)) {
-        setFormData((prev) => ({
-          ...prev,
-          [key]: place[key],
-        }));
-      }
-    }
+// useEffect(() => {
+//   if (!id) {
+//     return;
+//   }
+//   setLoading(true);
+//   axiosInstance.get(`/places/${id}`).then((response) => {
+//     const { place } = response.data;
+//     // update the state of formData
+//     for (let key in formData) {
+//       if (place.hasOwnProperty(key)) {
+//         setFormData((prev) => ({
+//           ...prev,
+//           [key]: place[key],
+//         }));
+//       }
+//     }
 
-    // update photos state separately
-    setAddedPhotos([...place.photos]);
+//     // update photos state separately
+//     setAddedPhotos([...place.photos]);
 
-    setLoading(false);
-  });
-}, [id]);
+//     setLoading(false);
+//   });
+// }, [id]);
 
 const preInput = (header, description) => {
   return (
@@ -153,7 +121,8 @@ if (loading) {
 }
 
 return (
-  <div className="py-20 p-4 ">
+  <div className="py-20 p-4 bg-white w-full h-full ">
+    <h1 className='text-4xl font-bold'>Report Illegal Parking to Administration</h1>
     {/* <AccountNav /> */}
     <form onSubmit={savePlace}>
       {/* {preInput(
@@ -194,7 +163,7 @@ return (
       {/* {preInput('Perks', ' select all the perks of your place')} */}
       {/* <Perks selected={perks} handleFormData={handleFormData} /> */}
 
-      {preInput('Extra info', 'house rules, etc ')}
+      {preInput('Extra info', 'address, time, etc. ')}
       <textarea
         value={extraInfo}
         name="extraInfo"
