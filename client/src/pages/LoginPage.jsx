@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import AXios from 'axios';
-// import { GoogleLogin } from '@react-oauth/google';
+import Axios from 'axios';
+import { GoogleLogin } from '@react-oauth/google';
 
 import ProfilePage from './ProfilePage';
 import { useAuth } from '../../hooks';
@@ -21,23 +21,23 @@ const LoginPage = () => {
     e.preventDefault();
 
     const response = await Axios.post('http://localhost:3000/user/login',formData);
-    if (response.success) {
-      toast.success('sucess register');
-      setRedirect(true);
+    if (response) {
+      toast.success('sucess login');
+      // setRedirect(true);
     } else {
-      toast.error('failed register');
+      toast.error('failed login');
     }
   };
 
-  // const handleGoogleLogin = async (credential) => {
-  //   const response = await auth.googleLogin(credential);
-  //   if (response.success) {
-  //     toast.success(response.message);
-  //     setRedirect(true);
-  //   } else {
-  //     toast.error(response.message);
-  //   }
-  // };
+  const handleGoogleLogin = async (credential) => {
+    const response = await auth.googleLogin(credential);
+    if (response.success) {
+      toast.success(response.message);
+      setRedirect(true);
+    } else {
+      toast.error(response.message);
+    }
+  };
 
   if (redirect) {
     return <Navigate to={'/'} />;
@@ -75,8 +75,8 @@ const LoginPage = () => {
           <div className="h-0 w-1/2 border-[1px]"></div>
         </div>
 
-        {/* Google login button */}
-        {/* <div className="flex h-[50px] justify-center">
+        {/* Google login button */} 
+         <div className="flex h-[50px] justify-center">
           <GoogleLogin
             onSuccess={(credentialResponse) => {
               handleGoogleLogin(credentialResponse.credential);
@@ -87,7 +87,7 @@ const LoginPage = () => {
             text="continue_with"
             width="350"
           />
-        </div> */}
+        </div> 
 
         <div className="py-2 text-center text-gray-500">
           Don't have an account yet?{' '}
