@@ -11,7 +11,7 @@ exports.addPlace = async (req, res) => {
       description,
       perks,
       extraInfo,
-      maxGuests,
+      status,
       price,
     } = req.body;
     const place = await Place.create({
@@ -22,7 +22,7 @@ exports.addPlace = async (req, res) => {
       description,
       perks,
       extraInfo,
-      maxGuests,
+      status,
       price,
     });
     res.status(200).json({
@@ -62,7 +62,7 @@ exports.updatePlace = async (req, res) => {
       description,
       perks,
       extraInfo,
-      maxGuests,
+      status,
       price,
     } = req.body;
 
@@ -75,7 +75,7 @@ exports.updatePlace = async (req, res) => {
         description,
         perks,
         extraInfo,
-        maxGuests,
+        status,
         price,
       });
       await place.save();
@@ -104,6 +104,23 @@ exports.getPlaces = async (req, res) => {
     });
   }
 };
+
+
+
+// NEW ADDED------------------------------------------------------------
+exports.getRequests = async (req, res) => {
+  try {
+    const places = await Place.find({status:0});
+    res.status(200).json({
+      places
+    });
+  } catch (err) {
+    res.status(500).json({
+      message: 'Internal server error',
+    });
+  }
+};
+// ------------------------------------------------------------------------------
 
 // Returns single place, based on passed place id
 exports.singlePlace = async (req, res) => {

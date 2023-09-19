@@ -22,7 +22,7 @@ const placeSchema = new mongoose.Schema({
   extraInfo: {
     type: String,
   },
-  maxGuests: {
+  status: {
     type: Number,
   },
   price: {
