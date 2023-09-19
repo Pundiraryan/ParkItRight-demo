@@ -23,7 +23,7 @@ module.exports = {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: '#F5385d',
+          DEFAULT: '#5EA5EC',
           foreground: 'hsl(var(--primary-foreground))',
         },
         secondary: {
@@ -50,6 +50,10 @@ module.exports = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        horn: {
+          DEFAULT : "#FD5C70",
+          foreground : 'hsl(var(--card-foreground))',
+        }
       },
       borderRadius: {
         lg: 'var(--radius)',

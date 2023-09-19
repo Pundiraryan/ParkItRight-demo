@@ -34,7 +34,7 @@ const SearchBar = () => {
         <div className="grow">
           <input
             type="search"
-            placeholder="Where you want to go?"
+            placeholder="Where you want to park?"
             className="h-full w-full border-none py-2 px-4 text-sm  focus:outline-none md:text-lg"
             onChange={(e) => handleSearch(e)}
             value={searchText}
@@ -62,6 +62,14 @@ const SearchBar = () => {
             <span className="ml-1 hidden md:block">Search</span>
           </button>
         </div>
+      </div>
+      <div className='flex px-3.5 bg-horn overflow-hidden rounded-full border shadow-sm hover:shadow-lg'>
+        <a href="/" className="flex items-center gap-1">
+          <img
+            className="h-10 w-10 md:h-10 md:w-10"
+            src="/images/air-horn.png"
+            alt=""
+          /></a>
       </div>
     </>
   );
