@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 
 import axiosInstance from '@/utils/axios';
 import { usePlaces } from '../../../hooks';
+import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 const SearchBar = () => {
   const Places = usePlaces();
@@ -64,12 +67,13 @@ const SearchBar = () => {
         </div>
       </div>
       <div className='flex px-3.5 bg-horn overflow-hidden rounded-full border shadow-sm hover:shadow-lg'>
-        <a href="/" className="flex items-center gap-1">
+        <Link to="/report">
+        <div className="flex items-center gap-1">
           <img
             className="h-10 w-10 md:h-10 md:w-10"
             src="/images/air-horn.png"
             alt=""
-          /></a>
+          /></div></Link>
       </div>
     </>
   );
