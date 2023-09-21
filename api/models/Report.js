@@ -1,20 +1,15 @@
 const mongoose = require("mongoose");
-
 const reportSchema = new mongoose.Schema({
-//   owner: {
-//     type: mongoose.Schema.ObjectId,
-//     ref: "user",
-//     required: true,
-//   },
   Reg_no: {
     type: String,
     required: true,
   },
   address: {
-    type: String,
-    //required: true,
+    type: String
   },
-  photos: [{ type: String }],
+  photos:{
+    type:String
+  },
   Vtype:{
     type: String
   },
@@ -22,13 +17,9 @@ const reportSchema = new mongoose.Schema({
     type: Boolean,
     default: true
   }
-  
-
 //   price: {
 //     type: Number,
 //   },
 });
-
 const Report = mongoose.model("Report", reportSchema);
-
 module.exports = Report;

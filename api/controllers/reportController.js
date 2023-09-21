@@ -1,20 +1,17 @@
 const Report = require('../models/Report');
 //const userFromToken = require('../utils/userFromToken');
-
 exports.addReport = async (req, res) => {
   try {
-   // const userData = userFromToken(req);
     const {
         Reg_no,
         address,
-        addedPhotos,
+        photos,
         Vtype,
-        //Active_
     } = req.body;
     const report = await Report.create({
       Reg_no,  
       address,
-      photos: addedPhotos,
+      photos,
       Vtype,
     });
     res.status(200).json({
