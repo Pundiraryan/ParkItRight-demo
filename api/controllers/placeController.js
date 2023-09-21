@@ -94,7 +94,7 @@ exports.updatePlace = async (req, res) => {
 // Returns all the places in DB
 exports.getPlaces = async (req, res) => {
   try {
-    const places = await Place.find();
+    const places = await Place.find({status:1});
     res.status(200).json({
       places,
     });
