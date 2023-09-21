@@ -4,12 +4,12 @@ import {
   MdOutlineCalendarToday,
   MdBarChart,
 } from "react-icons/md";
-import Card from "components/card";
+import Card from "/Users/sgaut/Desktop/asdas/airbnb-clone/client/src/components/card";
 import {
   lineChartDataTotalSpent,
   lineChartOptionsTotalSpent,
-} from "variables/charts";
-import LineChart from "components/charts/LineChart";
+} from "/Users/sgaut/Desktop/asdas/airbnb-clone/client/src/variables/charts";
+import LineChart from "/Users/sgaut/Desktop/asdas/airbnb-clone/client/src/components/charts/LineChart";
 
 const TotalSpent = () => {
   return (

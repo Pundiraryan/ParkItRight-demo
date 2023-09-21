@@ -1,9 +1,9 @@
 import React from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
-import Navbar from "components/navbar";
-import Sidebar from "components/sidebar";
-import Footer from "components/footer/Footer";
-import routes from "routes.js";
+import Navbar from "/Users/sgaut/Desktop/asdas/airbnb-clone/client/src/components/navbar";
+import Sidebar from "/Users/sgaut/Desktop/asdas/airbnb-clone/client/src/components/sidebar";
+import Footer from "/Users/sgaut/Desktop/asdas/airbnb-clone/client/src/components//footer/Footer";
+import routes from "/Users/sgaut/Desktop/asdas/airbnb-clone/client/src/routes";
 
 export default function Admin(props) {
   const { ...rest } = props;

@@ -39,7 +39,7 @@ const PlacePage = () => {
 
   return (
     <div className="mt-4 overflow-x-hidden px-8 pt-20 ">
-      <h1 className="text-3xl">{place.title}</h1>
+        <h1 className="text-3xl">{place.title}</h1>
 
       <AddressLink placeAddress={place.address} />
       <PlaceGallery place={place} />
