@@ -3,8 +3,9 @@ const Place = require('../models/Place');
 // Adds a place in the DB
 exports.addPlace = async (req, res) => {
   try {
-    const userData = req.user;
+    // const userData = req.user;
     const {
+      owner,
       title,
       address,
       addedPhotos,
@@ -15,7 +16,6 @@ exports.addPlace = async (req, res) => {
       price,
     } = req.body;
     const place = await Place.create({
-      owner: userData.id,
       title,
       address,
       photos: addedPhotos,
@@ -119,6 +119,35 @@ exports.getRequests = async (req, res) => {
       message: 'Internal server error',
     });
   }
+};
+
+exports.updateRequests = async (req,res) => {
+  try {
+    const userData = req.user;
+    //const userId = userData.id;
+    const {
+      
+      status,
+    
+    } = req.body;
+
+    const place = await Place.findById(id);
+    // if (userId === place.owner.toString()) {
+      place.set({
+        status
+      });
+      await place.save();
+      res.status(200).json({
+        message: 'place updated!',
+      });
+    //}
+  } catch (err) {
+    res.status(500).json({
+      message: 'Internal server error',
+      error: err,
+    });
+  }
+
 };
 // ------------------------------------------------------------------------------
 

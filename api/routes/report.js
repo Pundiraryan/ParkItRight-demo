@@ -11,7 +11,8 @@ const { isLoggedIn } = require('../middlewares/user');
 // } = require('../controllers/placeController');
 const {
     addReport,
-    getReport
+    getReport,
+    updateReport
 }=require('../controllers/reportController');
 // router.route('/').get(getPlaces);
 router.route('/').post(addReport);
