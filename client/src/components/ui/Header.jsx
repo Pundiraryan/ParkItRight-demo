@@ -35,7 +35,7 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 z-10 flex w-screen justify-center bg-indigo-200 py-2 ${
+      className={`fixed top-0 z-10 flex w-screen justify-center bg-gray-100 py-2 ${
         hasShadow ? 'shadow-md' : ''
       }`}
     >
@@ -61,7 +61,7 @@ export const Header = () => {
         
         <Link
           to={user ? '/account' : '/login'}
-          className="h-12 flex items-center gap-1 rounded-full bg-indigo-100 border-gray-400 py-1 px-1 md:border text-black shadow-sm hover:shadow-lg"
+          className="h-12 flex items-center gap-1 rounded-full bg-gray-100 border-gray-400 py-1 px-1 md:border text-black shadow-sm hover:shadow-lg"
         >
           {/* <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +105,7 @@ export const Header = () => {
         </Link>
         <div className='h-12 flex px-2 py-1 '>
         <Link to="/report">
-        <div className="px-2 flex items-center bg-horn overflow-hidden rounded-full border border-indigo-300 shadow-sm hover:shadow-lg">
+        <div className="px-2 flex items-center bg-horn overflow-hidden rounded-full border border-gray-300 shadow-sm hover:shadow-lg">
           <img
             className="h-10 w-10 md:h-10 md:w-10"
             src="/images/air-horn.png"

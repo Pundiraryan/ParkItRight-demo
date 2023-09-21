@@ -2,12 +2,12 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div className="flex  w-full justify-center bg-indigo-200 pb-8">
+    <div className="flex  w-full justify-center bg-gray-300 pb-8">
       <div className="flex w-full max-w-screen-xl flex-col items-center px-6">
         {/* grid for links */}
         <div className="grid  w-full grid-cols-1 gap-4 py-8 text-sm md:grid-cols-3 ">
           <div className="flex flex-col gap-1">
-            <strong className="font-medium">Support</strong>
+            <strong className="font-medium text-lg text-black">Support</strong>
             <p>
               <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
                 Help Center
@@ -45,7 +45,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex flex-col gap-1">
-            <strong className="font-medium">Hosting</strong>
+            <strong className="font-medium text-lg text-black">Hosting</strong>
             <p>
               <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
                 ParkItRight your Parking
@@ -73,7 +73,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex flex-col gap-1">
-            <strong className="font-medium">ParkItRight</strong>
+            <strong className="font-medium text-lg text-black">ParkItRight</strong>
             <p>
               <span className="cursor-pointer font-normal text-gray-700 decoration-1 underline-offset-1 hover:underline">
                 When to report?
