@@ -12,6 +12,7 @@ import PlacesPage from './pages/PlacesPage';
 import BookingsPage from './pages/BookingsPage';
 import PlacesFormPage from './pages/PlacesFormPage';
 import PlacePage from './pages/PlacePage';
+import ReportPage from './pages/ReportPage';
 import SingleBookedPlace from './pages/SingleBookedPlace';
 import axiosInstance from './utils/axios';
 import { UserProvider } from './providers/UserProvider';
@@ -43,6 +44,7 @@ function App() {
               <Route path="/account/places/:id" element={<PlacesFormPage />} />
               <Route path="/place/:id" element={<PlacePage />} />
               <Route path="/account/bookings" element={<BookingsPage />} />
+              <Route path="/report" element={<ReportPage/>}/>
               <Route
                 path="/account/bookings/:id"
                 element={<SingleBookedPlace />}

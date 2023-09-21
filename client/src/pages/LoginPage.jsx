@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Axios from 'axios';
 import { GoogleLogin } from '@react-oauth/google';
 
 import ProfilePage from './ProfilePage';
@@ -19,12 +20,12 @@ const LoginPage = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await auth.login(formData);
-    if (response.success) {
-      toast.success(response.message);
+    const response = await Axios.post('http://localhost:3000/user/login',formData);
+    if (response) {
+      toast.success('sucess login');
       setRedirect(true);
     } else {
-      toast.error(response.message);
+      toast.error('failed login');
     }
   };
 
@@ -74,8 +75,8 @@ const LoginPage = () => {
           <div className="h-0 w-1/2 border-[1px]"></div>
         </div>
 
-        {/* Google login button */}
-        <div className="flex h-[50px] justify-center">
+        {/* Google login button */} 
+         <div className="flex h-[50px] justify-center">
           <GoogleLogin
             onSuccess={(credentialResponse) => {
               handleGoogleLogin(credentialResponse.credential);
@@ -86,7 +87,7 @@ const LoginPage = () => {
             text="continue_with"
             width="350"
           />
-        </div>
+        </div> 
 
         <div className="py-2 text-center text-gray-500">
           Don't have an account yet?{' '}
