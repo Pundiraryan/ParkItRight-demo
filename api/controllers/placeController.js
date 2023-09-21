@@ -120,6 +120,35 @@ exports.getRequests = async (req, res) => {
     });
   }
 };
+
+exports.updateRequests = async (req,res) => {
+  try {
+    const userData = req.user;
+    const userId = userData.id;
+    const {
+      
+      status,
+    
+    } = req.body;
+
+    const place = await Place.findById(id);
+    if (userId === place.owner.toString()) {
+      place.set({
+        status
+      });
+      await place.save();
+      res.status(200).json({
+        message: 'place updated!',
+      });
+    }
+  } catch (err) {
+    res.status(500).json({
+      message: 'Internal server error',
+      error: err,
+    });
+  }
+
+}
 // ------------------------------------------------------------------------------
 
 // Returns single place, based on passed place id
