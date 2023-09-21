@@ -121,8 +121,8 @@ if (loading) {
 }
 
 return (
-  <div className="py-20 p-4 bg-white w-full h-full ">
-    <h1 className='text-4xl font-bold text-center'>Report Illegal Parking to Administration</h1>
+  <div className="px-4 w-full h-full bg-white">
+    <h1 className='pt-20 text-4xl font-bold text-center'>Report Illegal Parking to Administration</h1>
     {/* <AccountNav /> */}
     <form onSubmit={savePlace}>
       {/* {preInput(
@@ -167,6 +167,8 @@ return (
       <textarea
         value={extraInfo}
         name="extraInfo"
+        // type="text"
+        placeholder="Any extra info you want to share"
         onChange={handleFormData}
       />
 
