@@ -14,11 +14,15 @@ const placeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  photos: [{ type: String }],
-  description: {
-    type: String,
+  photos:{
+    type:String
   },
-  perks: [{ type: String }],
+  description: {
+    type: String
+  },
+  perks:{
+    type:String
+  },
   extraInfo: {
     type: String,
   },

@@ -3,8 +3,9 @@ const Place = require('../models/Place');
 // Adds a place in the DB
 exports.addPlace = async (req, res) => {
   try {
-    const userData = req.user;
+    // const userData = req.user;
     const {
+      owner,
       title,
       address,
       addedPhotos,
@@ -15,7 +16,6 @@ exports.addPlace = async (req, res) => {
       price,
     } = req.body;
     const place = await Place.create({
-      owner: userData.id,
       title,
       address,
       photos: addedPhotos,
@@ -94,7 +94,7 @@ exports.updatePlace = async (req, res) => {
 // Returns all the places in DB
 exports.getPlaces = async (req, res) => {
   try {
-    const places = await Place.find();
+    const places = await Place.find({status:1});
     res.status(200).json({
       places,
     });

@@ -16,6 +16,7 @@ const {
 // router.route('/').get(getPlaces);
 router.route('/').post(addReport);
 router.route('/view').get(getReport);
+// router.route('/view').patch(updateReport);
 // router.route('/update-place').put(isLoggedIn, updatePlace);
 
 // Not Protected routed but sequence should not be interfered with above routes
