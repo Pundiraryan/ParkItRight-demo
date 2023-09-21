@@ -23,7 +23,7 @@ const LoginPage = () => {
     const response = await Axios.post('http://localhost:3000/user/login',formData);
     if (response) {
       toast.success('sucess login');
-      // setRedirect(true);
+      setRedirect(true);
     } else {
       toast.error('failed login');
     }
