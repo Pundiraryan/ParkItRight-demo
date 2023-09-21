@@ -9,11 +9,13 @@ const {
   singlePlace,
   userPlaces,
   searchPlaces,
-  getRequests
+  getRequests,
+  updateRequests
 } = require('../controllers/placeController');
 
 router.route('/').get(getPlaces);
-router.route('/admin').get(isLoggedIn,getRequests);
+router.route('/admin-view').get(getRequests);
+router.route('/adminupdate').put(updateRequests);
 
 // Protected routes (user must be logged in)
 router.route('/add-places').post(isLoggedIn, addPlace);

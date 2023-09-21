@@ -45,7 +45,7 @@ exports.getReport = async (req, res) => {
 
 // PUT route to update the "status" field to false for a report by ID
 //router.put('/update/:id', async (req, res) => {
-exports.updatedReport = async (req,res) =>{
+exports.updateReport = async (req,res) =>{
   const { id } = req.params;
 
   try {
