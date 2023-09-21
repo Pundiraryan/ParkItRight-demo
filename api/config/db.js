@@ -9,6 +9,7 @@ const connectWithDB = () => {
       , {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      dbName:"ParkItRight"
     })
     .then(console.log(`DB connected successfully`))
     .catch((err) => {

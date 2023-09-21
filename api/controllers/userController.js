@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs')
 exports.register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-
+    console.log(req.body);
     if (!name || !email || !password) {
       return res.status(400).json({
         message: 'Name, email and password are required',
@@ -27,10 +27,11 @@ exports.register = async (req, res) => {
       email,
       password,
     });
-
     // after creating new user in DB send the token
     cookieToken(user, res);
   } catch (err) {
+    console.log(err);
+    console.log('gadbad-------------');
     res.status(500).json({
       message: 'Internal server Error',
       error: err,
@@ -51,6 +52,7 @@ exports.login = async (req, res) => {
     }
 
     const user = await User.findOne({ email });
+    console.log(user);
 
     if (!user) {
       return res.status(400).json({

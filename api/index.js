@@ -10,11 +10,11 @@ const cloudinary = require('cloudinary').v2;
 // connect with database
 connectWithDB();
 // cloudinary configuration
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
+// cloudinary.config({
+//   cloud_name: process.env.CLOUDINARY_NAME,
+//   api_key: process.env.CLOUDINARY_API_KEY,
+//   api_secret: process.env.CLOUDINARY_API_SECRET,
+// });
 
 const app = express();
 
@@ -35,10 +35,7 @@ app.use(cookieSession({
 app.use(express.json());
 
 // CORS
-app.use(cors({
-  origin: process.env.CLIENT_URL,
-  credentials: true,
-}));
+app.use(cors());
 
 // use express router
 app.use('/', require('./routes'));
